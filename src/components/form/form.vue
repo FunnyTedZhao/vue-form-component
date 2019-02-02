@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form class="t-form">
     <slot></slot>
   </form>
 </template>
@@ -7,9 +7,9 @@
 <script>
   export default {
     name: 'tForm',
-    data () {
+    provide () {
       return {
-        fields: []
+        form: this
       }
     },
     props: {
@@ -18,6 +18,11 @@
       },
       rules: {
         type: Object
+      }
+    },
+    data () {
+      return {
+        fields: []
       }
     },
     created () {
@@ -34,3 +39,7 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .t-form {}
+</style>
